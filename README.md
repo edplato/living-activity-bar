@@ -5,7 +5,7 @@ Continuously changes color of activity bar.
 
 ## Features
 
-![logo](images/logo.jpg)
+![logo](images/logo.png)
 
 ## Requirements
 
