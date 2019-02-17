@@ -1,0 +1,75 @@
+{
+	"name": "living-activity-bar",
+	"displayName": "Living Activity Bar",
+	"description": "Continuously changes color of activity bar.",
+	"publisher": "edplato",
+	"icon": "images/logo.png",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.30.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"activity",
+		"sidebar",
+		"color",
+		"colour",
+		"fun"
+	],
+	"activationEvents": [
+		"onCommand:extension.livingActivityBar"
+	],
+	"bugs": {
+		"url": "https://github.com/edplato/living-activity-bar/issues"
+	},
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.livingActivityBar",
+				"title": "Living Status Bar"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Living Activity Bar",
+			"properties": {
+				"living-activity-bar.timer": {
+						"type": "number",
+						"default": 100,
+						"description": "Set the timer (in milliseconds) for color change.  [ default : 100, minimum: 50 ]",
+						"scope": "resource"
+				},
+				"living-activity-bar.colorpick": {
+					"scope": "resource",
+					"type": "string",
+					"enum": [
+						"blueToRed",
+						"blueShades",
+						"greenShades",
+						"redShades",
+						"yellowToOrange",
+						"purpleToPink"
+					],
+					"description": "Select default color arrays to cycle through."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^3.1.4",
+		"vscode": "^1.1.25",
+		"tslint": "^5.8.0",
+		"@types/node": "^8.10.25",
+		"@types/mocha": "^2.2.42"
+	}
+}
